@@ -1,0 +1,965 @@
+
+/* linear-gradient( 43deg,  rgba(84,212,228,1) 0%, rgba(68,36,164,1) 46%, 4158D0 100%); */
+/* CLOR CHANGING */
+
+
+/* h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+:root {
+  --yellow: #4158D0;
+}
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Use keyframes for the animation */
+@keyframes loadOnRise {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to the visible class */
+.content.visible {
+  animation: loadOnRise 1.5s ease-in-out forwards;
+}
+
+.js-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  z-index: 9999;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, visibility 0.5s ease; /* Modify the transition property */
+}
+
+.js-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+:root {
+  --yellow: #4158D0;
+  --w: linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  --s: 2s; 
+}
+/* .color-mode-container {
+  display: none;
+} */
+
+/* Set the background color of the scrollbar track to light gray */
+/* Define CSS custom properties for the color scheme */
+:root {
+  --scrollbar-bg-light: transparent; /* Light gray background color */
+  --scrollbar-thumb-light: linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6; /* Light blue thumb */
+  --scrollbar-bg-dark: transparent; /* Dark gray background color for night mode */
+}
+
+/* Set the scrollbar width and background color using the custom properties */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+  background-color: var(--scrollbar-bg-light); /* Default light gray background color */
+}
+
+/* Set the color of the scrollbar thumb using the custom properties */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light); /* Default light blue thumb */
+  border-radius: 6px; /* Adjust the radius to make it rounded */
+}
+
+/* Handle on hover state */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2980b9; /* Lighter blue color on hover */
+}
+
+/* Optionally, you can style the scrollbar track when the thumb is being dragged */
+::-webkit-scrollbar-thumb:active {
+  background-color: #2070a0; /* Even lighter blue when active */
+}
+
+/* Apply dark mode styles */
+.dark-mode {
+  --scrollbar-bg-light: transparent; /* Dark gray background color for night mode */
+  --scrollbar-thumb-light:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;  /* Light blue thumb for night mode */
+}
+
+
+.switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon,1.4em);
+  width: var(--size-of-icon,1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset,0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  ;
+ transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #303136;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+  background: #303136;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+.clr-slider{
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  .dark-mode .navbar-toggler-icon
+  {
+    background-color: white;
+  }
+  .dark-mode #navbarNav
+  {
+    background-color: #0c0c0d;
+  }
+  #navbarNav > ul:last-child 
+  {
+    display: none;
+  }
+  #colormode-desk
+  {
+    display: none;
+  }
+  /* .slider
+  {
+    display: none;
+  } */
+  .clr-slider
+  {
+    display: block;
+    align-self: center;
+    justify-self: center;
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+  
+
+}
+.color-mode-icon
+{
+  pointer-events: none;
+}
+.bubbly-button
+{
+  display:none;
+}
+
+/* Button  */
+@media screen and (max-width: 768px) {
+  .bubbly-button {
+    display: inline-block;
+    font-size: 1em;
+    padding: 0px 0px 0px 10px;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #1D68A6;/* Replace $button-bg with the actual color value */
+    color: #fff; /* Replace $button-text-color with the actual color value */
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 1px 10px #1D68A6;
+  }
+  
+  .bubbly-button:focus {
+    outline: 0;
+  }
+  
+  .bubbly-button:before,
+  .bubbly-button:after {
+    position: fixed;
+    content: '';
+    display: block;
+    width: 160%;
+    height: 100%;
+    left: -20%;
+    z-index: -1000;
+    transition: all ease-in-out 0.5s;
+    background-repeat: no-repeat;
+  }
+  
+  .bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image:  
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle,  transparent 20%, #1d68a6 20%, transparent 30%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%), 
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle,  transparent 10%, #1d68a6 15%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image:  
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle,  transparent 10%, #1d68a6 15%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%),
+    radial-gradient(circle, #1d68a6 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: darken(var(--yellow), 5%);
+  box-shadow: 0 1px 10px var(--yellow);
+}
+  .bubbly-button.animate:before {
+    display: block;
+    animation: topBubbles ease-in-out 0.75s forwards;
+  }
+  
+  .bubbly-button.animate:after {
+    display: block;
+    animation: bottomBubbles ease-in-out 0.75s forwards;
+  }
+  
+  /* The rest of your CSS code and JavaScript can remain unchanged. */
+  
+  
+      @keyframes topBubbles {
+        0% {
+          background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+        }
+        50% {
+          background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+        }
+        100% {
+          background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+          background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
+        }
+      }
+  
+      @keyframes bottomBubbles {
+        0% {
+          background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+        }
+        50% {
+          background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+        }
+        100% {
+          background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+          background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
+        }
+      }
+      
+}
+  
+
+
+/* button end  */
+
+
+.navbar-brand1:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+  color: #30cfd0!important;
+}
+
+.facts-design {
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(43deg, #30cfd0 0%, #330867 100%)1;
+  margin: 5px;
+  
+}
+
+.facts-design:hover {
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%);
+  transition: all 1s ease-in-out;
+  color: white;
+}
+
+.facts-design:hover>h2 {
+  color: white;
+  /* or the desired text color when hovering */
+}
+.facts-design:hover>p {
+  color: white;
+  /* or the desired text color when hovering */
+}
+
+.margin-l {
+  margin-left: 350px;
+}
+
+.margin-t {
+  margin-top: 80px;
+}
+
+.portfolio .portfolio-item {
+  margin-bottom: 30px;
+}
+
+.portfolio #portfolio-flters {
+  padding: 0;
+  margin: 0 auto 25px auto;
+  list-style: none;
+  text-align: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 3px 20px;
+}
+
+.portfolio #portfolio-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.1rem;
+  color: #272829;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
+  background: -webkit-linear-gradient(43deg, #30cfd0 0%, #330867 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.portfolio #portfolio-flters li:last-child {
+  margin-right: 0;
+}
+
+.portfolio .portfolio-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(69, 80, 91, 0.8);
+}
+
+.portfolio .portfolio-wrap::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.portfolio .portfolio-wrap .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio .portfolio-wrap .portfolio-info::before {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  border-top: 3px solid #d7dce1;
+  border-left: 3px solid #d7dce1;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.portfolio .portfolio-wrap .portfolio-info::after {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  border-bottom: 3px solid #d7dce1;
+  border-right: 3px solid #d7dce1;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.portfolio .portfolio-wrap .portfolio-info h4 {
+  font-size: 20px;
+  color: #45505b;
+  font-weight: 600;
+}
+
+.portfolio .portfolio-wrap .portfolio-info p {
+  color: #45505b;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio .portfolio-wrap .portfolio-links {
+  text-align: center;
+  z-index: 4;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a {
+  color: #45505b;
+  margin: 0 2px;
+  font-size: 28px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+  color: #148af9;
+}
+
+.portfolio .portfolio-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+  opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info::before {
+  top: 15px;
+  left: 15px;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info::after {
+  bottom: 15px;
+  right: 15px;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.portfolio-details {
+  padding-top: 40px;
+}
+
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #0563bb;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #0563bb;
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li+li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+}
+
+/* #joke {
+  margin-top: 20px;
+  padding: 0px 10px 10px 10px;
+  border: 1px solid var(--yellow); 
+  border-radius: 0px; 
+  height: 150px;
+  margin-bottom: 100px;
+}
+.output {
+  text-align:center;
+  font-family: 'Source Code Pro', monospace;
+  color:white;
+}
+.output h1 {
+  font-size:25px;
+  font-weight: 500;
+}
+.output p {
+  font-size:15px;
+  font-weight: 200;
+}
+#joke:hover{
+  background-color: var(--yellow);
+} */
+/* .container:hover #output h1,
+.container:hover #output p {
+  color: white; 
+}  */
+
+
+/* Cursor Styling */
+/* .cursor::after {
+  content:'';
+  display:inline-block;
+  margin-left:3px;
+  background-color:var(--yellow);
+  animation-name:blink;
+  animation-duration:0.5s;
+  animation-iteration-count: infinite;
+}
+h1.cursor::after {
+  height: 20px;
+  width:10px;
+}
+p.cursor::after {
+  height:13px;
+  width:6px;
+}
+.container:hover #output {
+  background-color: var(--yellow); 
+  transition: all 0.5s ease-in-out;
+}
+
+.container:hover #output h1,
+.container:hover #output p {
+  color: white; 
+}
+
+@media screen and (max-width: 768px) {
+  #joke
+  {
+    width: 90%;
+    height: 150px;
+  }
+  .output h1 {
+    font-size:20px;
+    font-weight: 500;
+  }
+  .outpu p{
+    font-size:10px;
+    font-weight: 200;
+  }
+
+}
+
+@keyframes blink {
+  0% {
+    opacity:1;
+  }
+  49% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+} */
+
+/* TYPEWRITER  */
+.output {
+  margin-left: 15px;
+  /* text-align:center; */
+  /* font-family: 'Source Code Pro', monospace; */
+  color: white;
+}
+
+.output h1 {
+  font-size: 30px;
+}
+
+/* Cursor Styling */
+.cursor::after {
+  content: '';
+  display: inline-block;
+  margin-left: 3px;
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%);
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+h1.cursor::after {
+  height: 26px;
+  width: 10px;
+}
+
+p.cursor::after {
+  height: 13px;
+  width: 6px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.abdullah {
+  color: var(--yellow);
+  font-size: 50px;
+  margin-left: 5px;
+}
+
+@media screen and (max-width:786px) {
+
+  .abdullah {
+    font-size: 35px;
+  }
+
+  .i-m {
+    font-size: 25px;
+  }
+
+  .output h1 {
+    font-size: 25px;
+  }
+
+/* COLOR CHANGER  */
+
+}
+
+
+.some-element {
+    background: -webkit-linear-gradient(43deg, #30cfd0 0%, #330867 100%);
+    /* background-clip: text; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-1 {
+  display: block;
+  height: 50px;
+  width: 80px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white!important;
+  font-size: 16px;
+  font-style: bold;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+.btn-1 i{
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+.btn-1:after {
+  position: absolute;
+  content:'';
+  display: inline-block;
+  background: rgba(59,173,227,1);
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  height: 50px;
+  width: 300px;
+  z-index: -1;
+  transform: translateX(-140px);
+  transition: transform 400ms ease-in;
+  color: white!important;
+}
+
+.btn-1:hover:after {
+  transform: translateX(-200px);
+  color: white!important;
+}
+.btn-1 i :hover{
+  color: white!important;
+}
+ .btn-1 span {
+  position: relative;
+  top: 14px;
+  color: white;
+  font-style: bold;
+  font-weight: 700;
+}
+@media screen and (max-width: 767px) {
+.custom-btn-group{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+}
+.contact-form .form-control:hover, .contact-form .form-control:focus {
+  border-image: linear-gradient(43deg, #30cfd0 0%, #330867 100%)1;
+}
+.contact-form .submit-btn {
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: bold;
+  border: 0;
+  cursor: pointer;
+}
+.contact-form .submit-btn:hover {
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  color: #ffffff;
+  transition: all 0.4s;
+  transform: scale(1.05);
+  
+}
+
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
+  background: -webkit-linear-gradient(43deg, #30cfd0 0%, #330867 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.timeline-wrapper:before {
+  content: "";
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 38px;
+}
+
+.timeline-yr {
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  border-radius: 100%;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+}
+.bg-gr 
+{
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: white;
+  font-size: 18px;
+  font-style:bold;
+  font-weight: 700; 
+}
+
+
+/* SEND BUTTON  */
+.contact-form button{
+  width: 210px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  color: #fff!important;
+  font-size: 18px;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.contact-form button p {
+  color: white!important;
+  margin-top: 4px;
+}
+.check-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  box-shadow: 0 0 14px -2px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: -40px;
+  opacity: 0;
+}
+
+.check-box svg {
+  width: 30px;
+  margin-top: 3px;
+}
+
+svg path {
+  stroke-width: 3;
+  stroke: #fff;
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  stroke-linecap: round;
+}
+
+.contact-form .active {
+  background:linear-gradient(43deg, #30cfd0 0%, #330867 100%) #1D68A6;
+  transition: 1s;
+}
+
+.contact-form .active .check-box {
+  right: 0;
+  opacity: 1;
+  transition: 1s;
+}
+
+.contact-form .active p {
+  margin-right: 65px;
+  transition: 1s;
+}
+
+.contact-form .active svg path {
+  stroke-dashoffset: 0;
+  transition: 1s;
+  transition-delay: 1s;
+}
+@media screen and (max-width: 767px) {
+  .contact-form button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-form button p {
+    color: white!important;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .check-box {
+    width: 80px;
+    height: 40px;
+    border-radius: 40px;
+    box-shadow: 0 0 14px -2px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: -40px;
+    opacity: 0;
+  }
+  .active p {
+    margin-right: 160px;
+    transition: 1s;
+  }
+}
+
+/* COLOR CHANGING END */
