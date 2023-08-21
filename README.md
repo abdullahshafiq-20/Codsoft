@@ -16,7 +16,7 @@
 <h3>🔥Tasks List🔥</h3>
 
 - Task-1: <br>  **Portfolio-Website** <a href="https://abdullahshafiq-20.github.io/Codsoft/Task-1/index.html" target="blank">Here
-
+- Task-2: <br>  **Landing Page** <a href="https://abdullahshafiq-20.github.io/Codsoft/Task-2/index.html" target="blank">Here
 
 
 
