@@ -1,6 +1,6 @@
 # Codsoft
-![GitHub repo size](https://img.shields.io/github/repo-size/abdullahshafiq-20/Codsoft)
-![GitHub](https://img.shields.io/github/license/abdullahshafiq-20/Codsoft)
+![GitHub repo size](https://img.shields.io/github/repo-size/abdullahshafiq-20/codsoft)
+![GitHub](https://img.shields.io/github/license/abdullahshafiq-20/codsoft?style=flat-square)
 
 <h2>GitHub Portfolio: Abdullah Shafiq's Web Development Journey</h2>
 
